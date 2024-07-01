@@ -36,9 +36,7 @@ builder.Services.AddTransient<DboEstadosConsultas>();
 builder.Services.AddTransient<DboMunicipiosConsultas>();
 
 
-builder.Services.AddTransient<AsentamientosNegocios>();
-builder.Services.AddTransient<EstadosNegocios>();
-builder.Services.AddTransient<MunicipiosNegocios>();
+builder.Services.AddTransient<AsentamientosMunicipiosEstadoNegocios>();
 
 
 
