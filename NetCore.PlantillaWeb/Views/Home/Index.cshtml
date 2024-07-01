@@ -1,0 +1,52 @@
+﻿@model List<NetCore.Entidades.DTOs.CPMexicoDTOS.EstadoDTOS.EstadosActivosDTO>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section style="display:flex; flex-direction: column; align-items: center; ">
+
+
+        <H2> CONSULTAR ASENTAMIENTOS DE UN MUNICIPIO </H2>
+        <p style="text-align: center;"> Elija un estado y municipio para saber sus asentamientos  </p>
+
+
+    <form onsubmit="BuscarAsentamientos(event)" id="buscarAsentamientos">
+
+        <input id="estadoInput"  list="BuscadorEstado" class="text-center form-control" placeholder="Nombre del estado" style="display:block; margin:1rem;"autocomplete="off">
+
+            <datalist id="BuscadorEstado">
+                @foreach (var estadosActivos in Model)
+                {
+                    <option value="@estadosActivos.Nombre"> @estadosActivos.Nombre</option>
+                }
+            </datalist>
+
+            <select id="municipioSelect" class="form-select" placeholder="Municipio" style="display:none; margin:1rem;" autocomplete="off">
+                <option value="0" selected disabled>Elija un municipio</option>
+            </select>
+
+
+            <button id="btnBuscar" type="submit" form="buscarAsentamientos" class="btn btn-primary" title="busca los asentamientos de un municipio" style="display: none; margin: 1rem; width:100%">Buscar </button>
+    </form>
+    
+
+</section>
+
+<section id="AsentamientosData" style="background-color: #F5F5F5; width:100%; border-radius: 16px; margin: 4rem 0 4rem 0rem; box-shadow:  8px 8px 15px #c6c6c6, -8px -8px 15px #ffffff; display:none;">
+
+    <div style="display:flex; justify-content: center; ">
+
+        <div id="divAsentamientos" class="tableResponsiveModulo" style="display: block; width:90%; text-align:unset;  padding: 8px; margin: 32px">
+        
+          <table id="TblAsentamientos" class="table table-striped table-bordered table-hover" style="width:100%; display:none;">
+                    
+          </table>
+       </div>
+
+    </div>
+
+</section>
+
+
